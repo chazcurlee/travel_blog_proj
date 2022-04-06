@@ -14,12 +14,13 @@ app.use(express.urlencoded({ extended: false}))
 
 const commentsController = require('./controllers/commentsController')
 const postsController = require('./controllers/postsController')
-const { Post, Comment } = require('./models');
+const { Post, Comment } = require('./models')
 
 
 app.get('/posts', postsController.getPost)
 app.get('/posts/:id', postsController.getPostDetail)
 app.get('/comments', commentsController.getComment)
+app.post('/posts', postsController.createPost)
 
 
 

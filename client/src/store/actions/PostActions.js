@@ -1,5 +1,5 @@
-import { GetPosts, GetPostDetails } from '../../services/PostService'
-import { GET_POSTS, GET_POST_DETAILS } from '../types'
+import { GetPosts, GetPostDetails, UploadPost } from '../../services/PostService'
+import { GET_POSTS, GET_POST_DETAILS, UPLOAD_POST } from '../types'
   
 export const LoadPosts = () => {
   
@@ -31,4 +31,27 @@ export const LoadPostDetails = (id) => {
         throw error
       }
     }
+}
+
+export const UploadNewPost = (newPost) => {
+
+  return async (dispatch) => {
+    try {
+      console.log(newPost)
+      const posts = await UploadPost(newPost)
+
+      dispatch({
+        type: UPLOAD_POST,
+        payload: posts
+      })
+    } catch (error) {
+      throw error
+    }
+
+
+  }
+
+
+
+
 }

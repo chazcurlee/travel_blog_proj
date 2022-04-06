@@ -18,3 +18,18 @@ export const GetPostDetails = async (id) => {
     throw error
   }
 }
+
+export const UploadPost = async (newPost) => {
+
+  try {
+    console.log(newPost)
+    const res = await Client.post('posts', newPost)
+    return res.data
+
+  } catch (error) {
+    throw error
+  }
+
+
+
+}

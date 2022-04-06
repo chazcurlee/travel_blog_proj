@@ -16,11 +16,21 @@ const getPostDetail = async (req, res) => {
 
 }
 
-const updatePostDetail = async (req, res) => {
+// const updatePostDetail = async (req, res) => {
 
-    let result = await Post.findByIdAndUpdate(req.params.id)
+    
+//     let result = await Post.findByIdAndUpdate({_id: req.params.id}, {req.body})
+//     res.json(result)
+
+
+// }
+
+const createPost = async (req, res) => {
+
+    console.log(req.body.info)
+    let inp = req.body.info
+    let result = await Post.insertMany(inp)
     res.json(result)
-
 
 }
 
@@ -29,7 +39,8 @@ const updatePostDetail = async (req, res) => {
 module.exports ={
    
     getPost,
-    getPostDetail
+    getPostDetail,
+    createPost
 
 
 }
