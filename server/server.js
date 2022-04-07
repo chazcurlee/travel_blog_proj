@@ -19,8 +19,11 @@ const { Post, Comment } = require('./models')
 
 app.get('/posts', postsController.getPost)
 app.get('/posts/:id', postsController.getPostDetail)
-app.get('/comments', commentsController.getComment)
 app.post('/posts', postsController.createPost)
+
+app.get('/comments', commentsController.getComment)
+app.get('/commments/:id', commentsController.getComment)
+
 
 
 
